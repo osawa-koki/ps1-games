@@ -104,8 +104,8 @@ switch ($game) {
     Write-Host ""
     Write-Host "  === Result ===================================" -ForegroundColor Magenta
     Write-Host "  =                                            =" -ForegroundColor Magenta
-    Write-Host "  =    accuracy: $(([string]$result_accuracy).PadRight(3))%                          =" -ForegroundColor Green
-    Write-Host "  =    average speed: $(([string]$result_average_speed).PadRight(10)) secs.         =" -ForegroundColor Green
+    Write-Host "  =    accuracy      : $(([string]$result_accuracy).PadRight(3))%                    =" -ForegroundColor Green
+    Write-Host "  =    average speed : $(([string]$result_average_speed).PadRight(10)) secs.        =" -ForegroundColor Green
     Write-Host "  =                                            =" -ForegroundColor Magenta
     Write-Host "  ==============================================" -ForegroundColor Magenta
     Write-Host ""
