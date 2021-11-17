@@ -55,4 +55,53 @@ switch ($game) {
     Write-Host "`tex) .\main.ps1 version"
     Write-Host ""
   }
+  add-nums {
+    $prev_is_correct = $null
+    $total_timespan = 0
+    $prev_timespan = $null
+    $total = 0
+    $correct = 0
+    $question_count = 10
+    for ($i = 0; $i -lt $question_count; $i++) {
+      $num1 = Get-Random -Minimum 1 -Maximum 10
+      $num2 = Get-Random -Minimum 1 -Maximum 10
+      $num3 = Get-Random -Minimum 1 -Maximum 10
+      $num4 = Get-Random -Minimum 1 -Maximum 10
+      $answer = $num1 + $num2 + $num3 + $num4
+      $start = Get-Date
+      $your_input = Read-Host "`t$num1 + $num2 + $num3 + $num4 = ???`n`t`t->"
+      $end = Get-Date
+      $timespan = $end - $start
+      $total_timespan += $timespan.TotalSeconds
+      $is_correct = $answer -eq $your_input
+      if ($null -ne $prev_is_correct) {
+        if ($prev_is_correct -eq $true) {
+          if ($is_correct -eq $true) {
+            $total += 1
+            $correct += 1
+          } else {
+            $total += 1
+          }
+        } else {
+          if ($is_correct -eq $true) {
+            $total += 1
+            $correct += 1
+          } else {
+            $total += 1
+          }
+        }
+      } else {
+        if ($is_correct -eq $true) {
+          $total += 1
+          $correct += 1
+        } else {
+          $total += 1
+        }
+      }
+      $prev_is_correct = $is_correct
+      $prev_timespan = $timespan
+    }
+
+
+  }
 }
