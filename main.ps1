@@ -159,4 +159,41 @@ switch ($game) {
     Write-Host ""
     Exit 0
   }
+  blackjack {
+    Write-Host ""
+    Write-Host " blackjack" -ForegroundColor Magenta
+    Write-Host ""
+    $player = 0
+    $dealer = 0
+    $player_card = @()
+    $dealer_card = @()
+    $player_card += Get-Random -Minimum 1 -Maximum 11
+    $dealer_card += Get-Random -Minimum 1 -Maximum 11
+    $player_card += Get-Random -Minimum 1 -Maximum 11
+    $dealer_card += Get-Random -Minimum 1 -Maximum 11
+    $player = $player_card[0] + $player_card[1]
+    $dealer = $dealer_card[0] + $dealer_card[1]
+    Write-Host "  === Result ===================================" -ForegroundColor Magenta
+    Write-Host "  =                                            =" -ForegroundColor Magenta
+    if ($true) {
+      Write-Host "  =    " -ForegroundColor Magenta -NoNewline
+      Write-Host "player" -ForegroundColor Green -NoNewline
+      Write-Host "     : " -NoNewline
+      Write-Host "$(([string]$player).PadRight(3))"  -ForegroundColor Green -NoNewline
+      Write-Host "                    =" -ForegroundColor Magenta -NoNewline
+      Write-Host ""
+    }
+    if ($true) {
+      Write-Host "  =    " -ForegroundColor Magenta -NoNewline
+      Write-Host "dealer" -ForegroundColor Green -NoNewline
+      Write-Host "     : " -NoNewline
+      Write-Host "$(([string]$dealer).PadRight(3))"  -ForegroundColor Green -NoNewline
+      Write-Host "                    =" -ForegroundColor Magenta -NoNewline
+      Write-Host ""
+    }
+    Write-Host "  =                                            =" -ForegroundColor Magenta
+    Write-Host "  ==============================================" -ForegroundColor Magenta
+    Write-Host ""
+    Exit 0
+  }
 }
