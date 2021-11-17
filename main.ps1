@@ -27,18 +27,18 @@ class blackjack_class {
 
   ShowStatus() {
     #Clear-Host
-    Write-Host "  your points: $($this.player_points)" -ForegroundColor Red
-    Write-Host "dealer points: $($this.dealer_points)" -ForegroundColor Blue
-    Write-Host ""
-    Write-Host "  your cards:"
-    foreach ($card in $($this.player_card)) {
-      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Red
+    Write-Host "  your points: $($this.player_points)" -ForegroundColor Red -NoNewline
+    Write-Host " | " -NoNewline
+    foreach ($card in $($this.player_cards)) {
+      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Red -NoNewline
     }
     Write-Host ""
-    Write-Host "dealer cards:"
-    foreach ($card in $($this.dealer_card)) {
-      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Blue
+    Write-Host "dealer points: $($this.dealer_points)" -ForegroundColor Blue -NoNewline
+    Write-Host " | " -NoNewline
+    foreach ($card in $($this.dealer_cards)) {
+      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Blue -NoNewline
     }
+    Write-Host ""
   }
   GetCard([int]$player) {
     $card = $this.cards_left[0]
