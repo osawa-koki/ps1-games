@@ -58,50 +58,45 @@ switch ($game) {
   add-nums {
     $prev_is_correct = $null
     $total_timespan = 0
-    $prev_timespan = $null
     $total = 0
     $correct = 0
     $question_count = 10
-    for ($i = 0; $i -lt $question_count; $i++) {
+    for ($i = 1; $i -le $question_count; $i++) {
+      Clear-Host
+      Write-Host""
+      if ($null -eq $prev_is_correct) {
+        Write-Host "  Game Started!" -ForegroundColor Blue
+      } elseif ($prev_is_correct) {
+        Write-Host "  Is Correct !!!" -ForegroundColor Blue
+      } else {
+        Write-Host "  Is Incorrrect..." -ForegroundColor Red
+      }
+      Write-Host""
+      Write-Host " Question: $i / $question_count" -ForegroundColor Magenta
+      Write-Host ""
+      Write-Host "`t`tyour total score is $($correct * 100 / $i)%." -ForegroundColor Green
+      Write-Host "`t`tyour average speed is $($total_timespan / $i)." -ForegroundColor Green
+      Write-Host ""
       $num1 = Get-Random -Minimum 1 -Maximum 10
       $num2 = Get-Random -Minimum 1 -Maximum 10
       $num3 = Get-Random -Minimum 1 -Maximum 10
       $num4 = Get-Random -Minimum 1 -Maximum 10
       $answer = $num1 + $num2 + $num3 + $num4
       $start = Get-Date
-      $your_input = Read-Host "`t$num1 + $num2 + $num3 + $num4 = ???`n`t`t->"
+      $your_input = Read-Host "`t$num1 + $num2 + $num3 + $num4 = ???`n`n`t`t->"
       $end = Get-Date
       $timespan = $end - $start
       $total_timespan += $timespan.TotalSeconds
       $is_correct = $answer -eq $your_input
-      if ($null -ne $prev_is_correct) {
-        if ($prev_is_correct -eq $true) {
-          if ($is_correct -eq $true) {
-            $total += 1
-            $correct += 1
-          } else {
-            $total += 1
-          }
-        } else {
-          if ($is_correct -eq $true) {
-            $total += 1
-            $correct += 1
-          } else {
-            $total += 1
-          }
-        }
+      if ($is_correct -eq $true) {
+        $correct += 1
+        $prev_is_correct = $true
       } else {
-        if ($is_correct -eq $true) {
-          $total += 1
-          $correct += 1
-        } else {
-          $total += 1
-        }
+        $prev_is_correct = $false
       }
-      $prev_is_correct = $is_correct
-      $prev_timespan = $timespan
+      $total += 1
     }
-
+    Clear-Host
 
   }
 }
