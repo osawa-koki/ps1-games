@@ -4,11 +4,22 @@ param(
 )
 
 if ($null -eq $game) {
+  Clear-Host
   Write-Host ""
-  Write-Host "`tPut the game name in the fst parameter."
-  Write-Host "`t  You can select the game from the list below."
-  Write-Host "`t  - add-nums -> Add 4 numbers quickly and correctly."
-  Write-Host "`t  - just10 -> Measure JUST 10 seconds."
+  Write-Host "welcome@ps1-games~: $"
+  Write-Host ""
+  Write-Host "`t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" -ForegroundColor Magenta
+  Write-Host "`t@                                                @" -ForegroundColor Magenta
+  Write-Host "`t@            Welcome to ps1-games !!!            @" -ForegroundColor Magenta
+  Write-Host "`t@                                                @" -ForegroundColor Magenta
+  Write-Host "`t@       - you can play games                     @" -ForegroundColor Magenta
+  Write-Host "`t@           pretending working.                  @" -ForegroundColor Magenta
+  Write-Host "`t@       - even if your boss appear,              @" -ForegroundColor Magenta
+  Write-Host "`t@           don't worry keep playing.            @" -ForegroundColor Magenta
+  Write-Host "`t@       - your look just programming.            @" -ForegroundColor Magenta
+  Write-Host "`t@       > type '.\main.ps1 help' for more detail @" -ForegroundColor Magenta
+  Write-Host "`t@                                                @" -ForegroundColor Magenta
+  Write-Host "`t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" -ForegroundColor Magenta
   Write-Host ""
   Exit -1
 }
