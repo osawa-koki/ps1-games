@@ -3,6 +3,56 @@ param(
   $game = $null
 )
 
+class blackjack_class {
+  blackjack_class() {
+    foreach ($number_object in $this.number_objects) {
+      foreach ($mark in $this.marks) {
+        $this.cards_left += @{
+          mark = $mark
+          number_object = $number_object
+        }
+      }
+    }
+    $this.cards_left = Get-Random -InputObject $this.cards_left -Count $this.cards_left.Count
+  }
+
+  [int] $player_points = 0
+  [int] $dealer_points = 0
+  $player_cards = @()
+  $dealer_cards = @()
+  $cards_left = @()
+
+  $number_objects = @(@{num=1;name="A"},@{num=2;name="2"},@{num=3;name="3"},@{num=4;name="4"},@{num=5;name="5"},@{num=6;name="6"},@{num=7;name="7"},@{num=8;name="8"},@{num=9;name="9"},@{num=10;name="10"},@{num=10;name="J"},@{num=10;name="Q"},@{num=10;name="K"})
+  $marks = @("♠", "♥", "♦", "♣")
+
+  ShowStatus() {
+    Clear-Host
+    Write-Host "  your points: $($this.player_points)" -ForegroundColor Red
+    Write-Host "dealer points: $($this.dealer_points)" -ForegroundColor Blue
+    Write-Host ""
+    Write-Host "  your cards:"
+    foreach ($card in $($this.player_card)) {
+      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Red
+    }
+    Write-Host ""
+    Write-Host "dealer cards:"
+    foreach ($card in $($this.dealer_card)) {
+      Write-Host "    $($card.number_object.name) $($card.mark)" -ForegroundColor Blue
+    }
+  }
+  GetCard([int]$player) {
+    $card = $this.cards_left[0]
+    $this.cards_left = $this.cards_left[1..$($this.cards_left.Count - 1)]
+    if ($player -eq 1) {
+      $this.player_card += $card
+      $this.player_points += $card.number_object.num
+    } else {
+      $this.dealer_card += $card
+      $this.dealer_points += $card.number_object.num
+    }
+  }
+}
+
 if ($null -eq $game) {
   Clear-Host
   Write-Host ""
@@ -160,40 +210,18 @@ switch ($game) {
     Exit 0
   }
   blackjack {
+    Clear-Host
     Write-Host ""
     Write-Host " blackjack" -ForegroundColor Magenta
     Write-Host ""
-    $player = 0
-    $dealer = 0
-    $player_card = @()
-    $dealer_card = @()
-    $player_card += Get-Random -Minimum 1 -Maximum 11
-    $dealer_card += Get-Random -Minimum 1 -Maximum 11
-    $player_card += Get-Random -Minimum 1 -Maximum 11
-    $dealer_card += Get-Random -Minimum 1 -Maximum 11
-    $player = $player_card[0] + $player_card[1]
-    $dealer = $dealer_card[0] + $dealer_card[1]
-    Write-Host "  === Result ===================================" -ForegroundColor Magenta
-    Write-Host "  =                                            =" -ForegroundColor Magenta
-    if ($true) {
-      Write-Host "  =    " -ForegroundColor Magenta -NoNewline
-      Write-Host "player" -ForegroundColor Green -NoNewline
-      Write-Host "     : " -NoNewline
-      Write-Host "$(([string]$player).PadRight(3))"  -ForegroundColor Green -NoNewline
-      Write-Host "                    =" -ForegroundColor Magenta -NoNewline
-      Write-Host ""
+    Write-Host "`ttake card to get 21 or less."
+    Read-Host "`tPress Enter to start -> "
+    $blackjack_instance = [blackjack_class]::new()
+    for ($i = 0; $i -lt 2; $i++) {
+      $blackjack_instance.GetCard(1)
+      $blackjack_instance.GetCard(2)
     }
-    if ($true) {
-      Write-Host "  =    " -ForegroundColor Magenta -NoNewline
-      Write-Host "dealer" -ForegroundColor Green -NoNewline
-      Write-Host "     : " -NoNewline
-      Write-Host "$(([string]$dealer).PadRight(3))"  -ForegroundColor Green -NoNewline
-      Write-Host "                    =" -ForegroundColor Magenta -NoNewline
-      Write-Host ""
-    }
-    Write-Host "  =                                            =" -ForegroundColor Magenta
-    Write-Host "  ==============================================" -ForegroundColor Magenta
-    Write-Host ""
+    $blackjack_instance.ShowStatus()
     Exit 0
   }
 }
