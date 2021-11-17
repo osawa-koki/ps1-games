@@ -1,6 +1,6 @@
-param(
-  [string]$message
-)
+
+$message = Read-Host "message -> "
+
 $date = $(Get-Date).AddYears(-1)
 git add .
 git commit -m "$message" --date="$date"
