@@ -26,7 +26,7 @@ class blackjack_class {
   $marks = @("♠", "♥", "♦", "♣")
 
   ShowStatus() {
-    Clear-Host
+    #Clear-Host
     Write-Host "  your points: $($this.player_points)" -ForegroundColor Red
     Write-Host "dealer points: $($this.dealer_points)" -ForegroundColor Blue
     Write-Host ""
@@ -44,10 +44,10 @@ class blackjack_class {
     $card = $this.cards_left[0]
     $this.cards_left = $this.cards_left[1..$($this.cards_left.Count - 1)]
     if ($player -eq 1) {
-      $this.player_card += $card
+      $this.player_cards += $card
       $this.player_points += $card.number_object.num
     } else {
-      $this.dealer_card += $card
+      $this.dealer_cards += $card
       $this.dealer_points += $card.number_object.num
     }
   }
