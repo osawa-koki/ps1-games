@@ -13,4 +13,16 @@ if ($null -eq $game) {
   Exit -1
 }
 
-Write-Host $game
+switch ($game) {
+  version {
+    Clear-Host
+    Write-Host ""
+    Write-Host "`t*** ********* ***" -ForegroundColor Magenta
+    Write-Host "`t*** ps1-games ***" -ForegroundColor Magenta
+    Write-Host "`t*** ********* ***" -ForegroundColor Magenta
+    Write-Host ""
+    Write-Host "`t`tversion: 1.0.0" -ForegroundColor Green
+    Write-Host ""
+    Exit 0
+  }
+}
