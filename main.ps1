@@ -1,6 +1,6 @@
 param(
   [Parameter()]
-  [ParameterType]$game = $null
+  [string]$game = $null
 )
 
 if ($null -eq $game) {
