@@ -7,4 +7,6 @@ Powershellで動作する簡単なゲーム。
 ```shell
 git init
 git rebase -i --root --committer-date-is-author-dat
+
+git log --pretty=fuller
 ```
