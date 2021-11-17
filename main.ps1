@@ -1,6 +1,6 @@
 param(
   [Parameter()]
-  [string]$game = $null
+  $game = $null
 )
 
 if ($null -eq $game) {
@@ -13,3 +13,5 @@ if ($null -eq $game) {
   Write-Host ""
   Exit -1
 }
+
+Write-Host $game
