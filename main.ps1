@@ -11,4 +11,5 @@ if ($null -eq $game) {
   Write-Host "`t  - add-nums -> Add 4 numbers quickly and correctly."
   Write-Host "`t  - just10 -> Measure JUST 10 seconds."
   Write-Host ""
+  Exit -1
 }
