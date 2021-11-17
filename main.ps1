@@ -124,4 +124,39 @@ switch ($game) {
     Write-Host "  ==============================================" -ForegroundColor Magenta
     Write-Host ""
   }
+  just10 {
+    Write-Host ""
+    Write-Host " just 10" -ForegroundColor Magenta
+    Write-Host ""
+    Read-Host "`tPress Enter to start -> "
+    Clear-Host
+    $start = Get-Date
+    while($true){
+      Write-Host "." -NoNewline
+      if([Console]::KeyAvailable){
+        [Console]::ReadKey($true) > $null
+        break
+      }
+      Start-Sleep -Milliseconds 10
+    }
+    $end = Get-Date
+    $timespan = $end - $start
+    $timespan = $timespan.TotalSeconds
+    Clear-Host
+    Write-Host ""
+    Write-Host "  === Result ===================================" -ForegroundColor Magenta
+    Write-Host "  =                                            =" -ForegroundColor Magenta
+    if ($true) {
+      Write-Host "  =    " -ForegroundColor Magenta -NoNewline
+      Write-Host "time" -ForegroundColor Green -NoNewline
+      Write-Host "      : " -NoNewline
+      Write-Host "$(([string]$timespan).PadRight(10))s"  -ForegroundColor Green -NoNewline
+      Write-Host "                 =" -ForegroundColor Magenta -NoNewline
+      Write-Host ""
+    }
+    Write-Host "  =                                            =" -ForegroundColor Magenta
+    Write-Host "  ==============================================" -ForegroundColor Magenta
+    Write-Host ""
+    Exit 0
+  }
 }
