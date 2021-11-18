@@ -3,6 +3,7 @@
 Powershellで動作する簡単なゲーム。  
 
 ![add-nums](./docs/img/add-nums.gif)  
+![just10](./docs/img/just10.gif)  
 
 ## Powershellのバージョン
 
