@@ -5,6 +5,7 @@
     "github.copilot",
     "eamodio.gitlens",
     "davidanson.vscode-markdownlint",
-    "wayou.vscode-todo-highlight"
+    "wayou.vscode-todo-highlight",
+    "ms-vscode.powershell"
   ]
 }
