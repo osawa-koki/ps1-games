@@ -23,6 +23,7 @@ $PSVersionTable
 Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1) } -UseMSI"
 ```
 
+<!--
 ## Gitコミット
 
 ```shell
@@ -31,3 +32,4 @@ git rebase -i --root --committer-date-is-author-date
 
 git log --pretty=fuller
 ```
+-->
