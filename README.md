@@ -6,6 +6,14 @@ Powershellで動作する簡単なゲーム。
 ![just10](./docs/img/just10.gif)  
 ![blackjack](./docs/img/blackjack.gif)  
 
+## 遊び方
+
+```shell
+./game.ps add-nums
+./game.ps just10 
+./game.ps blackjack 
+```
+
 ## Powershellのバージョン
 
 エスケープシーケンスによる文字の装飾を行っているため、6.0以上が要求される。[^1]
