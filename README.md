@@ -2,8 +2,22 @@
 
 Powershellで動作する簡単なゲーム。  
 
+## add-nums
+
+出力された4つの数字の和をできるだけ早く、できるだけ正確に計算します。  
+
 ![add-nums](./docs/img/add-nums.gif)  
+
+## just10
+
+10秒ぴったりでタイマーを止めます。  
+
 ![just10](./docs/img/just10.gif)  
+
+## blackjack
+
+ブラックジャックです。  
+
 ![blackjack](./docs/img/blackjack.gif)  
 
 ## 遊び方
