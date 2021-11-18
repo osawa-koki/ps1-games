@@ -2,6 +2,8 @@
 
 Powershellで動作する簡単なゲーム。  
 
+![add-nums](./docs/img/add-nums.gif)  
+
 ## Powershellのバージョン
 
 エスケープシーケンスによる文字の装飾を行っているため、6.0以上が要求される。[^1]
