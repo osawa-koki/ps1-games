@@ -51,7 +51,7 @@ Invoke-Expression "& { $(Invoke-RestMethod https://aka.ms/install-powershell.ps1
 
 ```shell
 git init
-git rebase -i --root --committer-date-is-author-date
+git rebase --root --committer-date-is-author-date
 
 git log --pretty=fuller
 ```
