@@ -1,6 +1,6 @@
 # ps1-games
 
-Powershellで動作する簡単なゲーム。  
+PowerShellで動作する簡単なゲーム。  
 
 ## add-nums
 
